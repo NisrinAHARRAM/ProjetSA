@@ -1,0 +1,94 @@
+package com.example.demo.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.excpetion.ResourceNotFoundException;
+import com.example.demo.model.Etudiant;
+import com.example.demo.model.Rendezvous;
+import com.example.demo.model.Validation;
+import com.example.demo.repository.EtudiantRepository;
+import com.example.demo.repository.RendezvousRepository;
+import com.example.demo.repository.ValidationRepository;
+@Service
+public class RendezvousService {
+
+		@Autowired
+		RendezvousRepository en;
+		@Autowired
+		private JavaMailSender mailSender;
+		@Autowired
+		private EtudiantRepository etudiantRepository;
+
+
+
+
+		public List<Rendezvous> getAllEtudiants(){
+						   return en.findAll();
+			}
+
+		public List<Rendezvous> getAllEmployees(){
+			return en.findAll();
+		}
+
+		public Optional<Rendezvous> serchEtudiants(Long id){
+			   return en.findById(id);
+		}	   
+		 public void addEtudiant(Rendezvous p) {
+		   
+		     	 en.save(p);
+		 }
+		 public void deleteEtudiant(Long id) {
+				en.deleteById(id);
+			}
+
+		public Rendezvous updateEtudiant(Rendezvous p) {
+						
+						  return (Rendezvous) en.save(p);
+			}
+						
+		public ResponseEntity<Map<String, Boolean>> deleteEmployee(Long id){
+			Rendezvous etudiant = en.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+			en.delete(etudiant);
+			Map<String, Boolean> response = new HashMap<>();
+			response.put("deleted", Boolean.TRUE);
+			return ResponseEntity.ok(response);
+		}
+
+
+
+		public ResponseEntity<Rendezvous> getEmployeeById( Long id) {
+			Rendezvous employee = en.findById(id)
+					.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+			return ResponseEntity.ok(employee);
+		}
+		public Rendezvous getEtudiantById(Long id) {
+		    return en.findById(id).orElse(null);
+		}
+
+		public Rendezvous findById(Long id) {
+		    return en.findById(id).orElse(null);
+		}
+		public Rendezvous createListe(Rendezvous employee) {
+			return en.save(employee);
+	}
+		/* public List<Validation> getEnregistrerByAppogE(Long appogE) {
+		    return en.findByAppogE(appogE);
+		}*/
+		public ResponseEntity<Rendezvous> updateEmployee( Long id, Rendezvous employeeDetails){
+			Rendezvous employee = en.findById(id)
+					.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+			employee.setIdMatch(employeeDetails.getIdMatch());
+			employee.setDate(employeeDetails.getDate());;
+			employee.setHeure(employeeDetails.getHeure());
+			Rendezvous updatedEmployee = en.save(employee);
+			return ResponseEntity.ok(updatedEmployee);
+		}
+	}

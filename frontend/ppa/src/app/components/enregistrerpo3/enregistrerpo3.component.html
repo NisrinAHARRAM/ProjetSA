@@ -1,0 +1,44 @@
+<div class="col-md-8 offset-md-1" style="margin-top: 30px;margin-left: 190px;">
+    <h2 style="margin-left: 330px;font-weight: bold;">Entrer votre donnes </h2>
+<form #f="ngForm" (ngSubmit)="saveProduct(f.value)" >
+        <div class="row mb-2">
+                <div  class="col">
+                    <h1 style="color:#0081C9;font-weight: bold;"> Etudiant 1</h1>
+                    <label for="appo1">Appoge</label>
+                    <input ngModel placeholder="Appoge 1" type="text" name="appo1" id="appo1" class="form-control">
+                    <label style="margin-left: 50px;" for="nom1">Nom complete</label>
+                    <input ngModel placeholder="Nom 1" type="text" name="nom1" id="nom1" class="form-control">
+                  </div>
+                  <div  class="col">
+                    <h1 style="color:#0081C9;font-weight: bold;"> Etudiant 2</h1>
+                    <label for="appo2">Appoge</label>
+                    <input ngModel placeholder="Appoge 2" type="text" name="appo2" id="appo2" class="form-control">
+                    <label style="margin-left: 50px;" for="nom2">Nom complete</label>
+                    <input ngModel placeholder="Nom 2" type="text" name="nom2" id="nom2" class="form-control">
+                  </div>
+                  <div  class="col">
+                    <h1 style="color:#0081C9;font-weight: bold;"> Etudiant 3</h1>
+                    <label for="appo3">Appoge</label>
+                    <input ngModel placeholder="Appoge 3" type="text" name="appo3" id="appo3" class="form-control">
+                    <label style="margin-left: 50px;" for="nom3">Nom complete</label>
+                    <input ngModel placeholder="Nom 3 " type="text" name="nom3" id="nom3" class="form-control"> 
+                  </div>
+        </div>
+    <!--     <div class="row mb-">
+            <div  class="col">
+                <label for="nom1">Nom complete</label>
+                <input ngModel placeholder="Nom 1" type="text" name="nom1" id="nom1" class="form-control">
+              </div>
+            <div  class="col">
+              <label for="nom2">Nom complete</label>
+              <input ngModel placeholder="Nom 2" type="text" name="nom2" id="nom2" class="form-control">
+            </div>
+            <div  class="col">
+                <label for="nom3">Nom complete</label>
+                <input ngModel placeholder="Nom 3 " type="text" name="nom3" id="nom3" class="form-control">
+              </div>
+        </div> -->
+    
+                <button class="btn btn-sm btn-primary">Ajouter</button>
+      </form>
+</div>

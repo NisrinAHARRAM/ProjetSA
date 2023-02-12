@@ -1,0 +1,44 @@
+<!-- (ngSubmit)="saverandez(f.value)" -->
+<div class="container">
+    <div class="main">
+  <form #f="ngForm" (ngSubmit)="ajouter(f.value)" >
+    <h2 style="margin-left: 20px;">Les remarque pour chaque etudiant</h2>
+    <div  class="row mb-2">
+        <label style="color:#0081C9;margin-top: 10px;margin-left: 20px; ">{{appno1.nomE + " "+ appno1.prenomE}}</label>
+        <textarea  ngModel name="remarque1" id="remarque1" class="form-control"></textarea>
+    </div>
+    <div  class="row mb-2">
+        <label style="color:#0081C9;margin-top: 10px;margin-left: 20px; ">Note de presentation de {{appno1.nomE + " "+ appno1.prenomE}}</label>
+        <input  ngModel name="pre1" id="pre1" class="form-control"/>   
+     </div>
+    <div  class="row mb-2">
+        <label style="color: #0081C9;margin-top: 10px;margin-left: 20px; ">{{appno2.nomE + " "+ appno2.prenomE}}</label>
+        <textarea  ngModel name="remarque2" id="remarque2" class="form-control"></textarea>
+    </div>
+    <div  class="row mb-2">
+        <label style="color: #0081C9;margin-top: 10px;margin-left: 20px; ">Note de presentation de {{appno2.nomE + " "+ appno2.prenomE}}</label>
+        <input  ngModel name="pre2" id="pre2" class="form-control"/>   
+     </div>
+    <ng-container *ngIf="valid.appogeT3!=null">
+    <div  class="row mb-2">
+        <label style="color:#0081C9;margin-top: 10px;margin-left: 20px; ">{{appno3.nomE + " "+ appno3.prenomE}}</label>
+        <textarea  ngModel name="remarque3" id="remarque3" class="form-control"></textarea>
+    </div>
+    <div  class="row mb-2">
+        <label style="color: #0081C9;margin-top: 10px;margin-left: 20px; ">Note de presentation de {{appno3.nomE + " "+ appno3.prenomE}}</label>
+        <input  ngModel name="pre3" id="pre3" class="form-control"/>   
+     </div>
+    </ng-container><br>
+    <h2 id="bb">note rapport et application</h2>
+    <div  class="row mb-2">
+        <label style="color:#0081C9;margin-top: 10px;margin-left: 20px; ">Note de rapport</label>
+        <input  ngModel name="note" id="note" class="form-control"/>
+    </div>
+    <div  class="row mb-2">
+        <label style="color:#0081C9;margin-top: 10px;margin-left: 20px; ">Note de l'applicalion</label>
+        <input  ngModel name="notea" id="notea" class="form-control"/>
+    </div>
+    <button class="btn btn-sm btn-primary" >Ajouter</button>
+</form>
+</div>
+</div>

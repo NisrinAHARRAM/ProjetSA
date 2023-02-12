@@ -1,0 +1,37 @@
+
+
+<div class="container">
+
+  <div class="card mb-3"  style="margin-left: 50px;border: none;">
+    <div class="row g-0">
+      <div class="col-md-4"  style="width: 30%;margin-top: 50px;margin-left: 50px;">
+        <img src="../assets/images/calendar.png" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-8" style="width: 50%;">
+        <div class="card-body">
+          <h5 class="card-title">fixer un rendez vous</h5>
+         </div>
+         <form #f="ngForm" (ngSubmit)="saverandez(f.value)">
+        
+          <div  class="col">
+              <label for="appo1">Date</label>
+              <input ngModel  type="date" name="date" id="date" class="form-control">
+            </div>
+            <div  class="col">
+              <label for="appo2">Heure</label>
+              <input ngModel placeholder="heur" type="time" name="heure" id="heure" class="form-control">
+            </div>
+      <br>
+          <button class="btn btn-sm btn-primary">Ajouter</button>
+      </form>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+ 
+

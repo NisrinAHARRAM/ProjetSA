@@ -1,0 +1,43 @@
+<div class="col-md-6 offset-md-3" style="margin-top: 50px;">
+    <h2>Entrer vous donnes</h2><br>
+    <form #f="ngForm"  (ngSubmit) = "onSubmit(f.value)" class="row g-3">
+        <div class="col-md-6">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="encadrant.nom" required placeholder="Nom" >
+          </div>
+          <div class="col-md-6">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="encadrant.prenom" required placeholder="Prenom">
+          </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="encadrant.email" required placeholder="name@uae.ac.ma"> 
+        </div>
+        <div class="col-md-6">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="encadrant.password" required placeholder="Mot de passe">
+        </div>
+        <!-- <div class="col-md-6">
+          <label for="departement" class="form-label">Departement</label>
+          <input type="text" class="form-control" id="departement" name="departement" [(ngModel)]="encadrant.departement" required placeholder="Departement">
+        </div> -->
+        <div class="col-md-6">
+          <label for="id" class="form-label">Code</label>
+          <input type="text" class="form-control" id="id" name="id" [(ngModel)]="encadrant.id" required placeholder="Code">
+          </div>
+        <div class="col-md-6">
+          <label for="departement" class="form-label">Departement</label>
+          <select  style="width:240px;height:43px; background-color: rgb(255, 255, 255);" id = "departement" required placeholder="Departement" [(ngModel)] = "encadrant.departement" name = "departement">
+              <option value="smi">smi</option>
+              <option value="sma">sma</option>
+              <option value="smp">smp</option>
+              <option value="smc">smc</option>
+              <option value="svi">svi</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" >S'inscrire</button>
+        </div>
+      </form>
+    </div>
+

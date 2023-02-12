@@ -1,0 +1,78 @@
+<div class="container">
+
+    <button (click) = "home()" class="btn">
+        <img class="card" src="../assets/images/accueil.png" alt="Card image cap" style=" border: none;border-radius: 50px; width: 80px;height: 80px;margin-left: 50px;">
+   </button>
+
+    <ul class="test">
+        <li>
+
+            <div class="list-group">
+                <button  (click)="affichecon()" class="list-group-item list-group-item-action " routerLinkActive="active">Les condaidats</button>
+                <button  (click)="remarque2()" class="list-group-item list-group-item-action " routerLinkActive="active">Espace des jurys</button>
+                <button  (click)="suject()" class="list-group-item list-group-item-action " routerLinkActive="active">Les sujets</button>
+                <button  (click)="demande()" class="list-group-item list-group-item-action " routerLinkActive="active">Les demandes</button>
+              </div>
+    
+        </li>
+    
+        <li>
+            <h1>Espace des demandes </h1>
+    
+            <nav class="navbar navbar-expand-lg">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <button  (click)="affiche()" class="btn">
+                        <div class="card" style="width: 15rem;height: 6rem; background-color: #FCFFA6;">
+                           <div class="card-body">
+                              <h3 class="card-text">Les demandes des condaidats</h3>
+                            </div>
+                          </div>
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <button  (click) = "updateEmployee()" class="btn">
+                        <div class="card" style="width: 15rem;height: 6rem; background-color: #C1FFD7;">
+                            <div class="card-body">
+                              <h3 class="card-text">Les demandes des encadrants</h3>
+                            </div>
+                          </div>
+                        </button>
+                    </li>
+                  
+                    <li class="nav-item">
+                      <button  (click) = "mod()" class="btn">
+                        <div class="card" style="width: 15rem;height: 6rem; background-color: #CAB8FF;">
+                            <div class="card-body">
+                              <h3 class="card-text">Les demandes de rendez vous</h3>
+                            </div>
+                          </div>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+    
+        </li>
+    </ul>
+
+
+
+
+  
+
+    </div>
+
+
+<!-- <div class="container">
+    <h1>Bienvenue !</h1>
+    <h2>Clicer sur ce button pour ajouter unsujet</h2>
+    <button  (click)="affiche()" class="btn btn-success">damande les condaidats</button><br><br>
+    <button  (click) ="updateEmployee()" class="btn btn-success">demande les encadrent</button><br><br>
+    <button  (click) ="mod()" class="btn btn-success">les demmende rendez vous</button><br><br> -->
+    <!-- <button   (click) ="remarque()" class="btn btn-success">espace de jery</button> -->
+    
+    
+    <!-- </div> -->

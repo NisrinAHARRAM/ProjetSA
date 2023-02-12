@@ -1,0 +1,26 @@
+<div>
+<div class="container">
+  <h1>Liste des sujets</h1>
+<table  class="mat-elevation-z8">
+    <thead>
+    <tr>
+      <th scope="col">Sujet </th>
+      <th scope="col">Description </th>
+      <th scope="col">Nombre des etudiants </th>
+      <th scope="col">Le nombre de groupes qui ont ce sujet</th>
+    </tr>
+    </thead>
+
+    <tbody *ngFor=" let lis of listOfEtudiants ">
+    <tr *ngFor=" let list of lis.listes " > 
+      <td  *ngIf=" lis.id == this.id " >{{list.sujet}}</td>
+      <td *ngIf=" lis.id== this.id" >{{list.desc}}</td>
+      <td *ngIf=" lis.id== this.id">{{list.nbr}}</td>
+      <td *ngIf=" lis.id== this.id">{{this.con}}</td>
+  </tr>
+  </tbody>
+</table>
+
+</div>
+</div>
+  

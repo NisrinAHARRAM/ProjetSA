@@ -1,0 +1,41 @@
+<div>
+  <div class="container">
+    <h1>Les demandes des etudiants</h1>
+
+<table  class="mat-elevation-z8">
+
+    <thead>
+    <tr>
+      <th scope="col">Appoge de l'etudiant 1</th>
+      <th scope="col">Nom complet de l'etudiant 1</th>
+      <th scope="col">Appoge de l'etudiant 2</th>
+      <th scope="col">Nom complet de l'etudiant 2</th>
+      <th scope="col">Appoge de l'etudiant 3</th>
+      <th scope="col">Nom complet de l'etudiant 3</th>
+      <th scope="col">Le nombre des etudiants</th>
+      <th scope="col">Sujet </th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    
+    <ng-container  *ngFor=" let lis of listOfEtudiants ">
+    <tbody *ngFor="let listeId of lis.listes">
+    <tr  *ngFor="let liste of listeId.enregistrers" >
+      <td  *ngIf="lis.id== this.id" >{{liste.appogeT1}}</td>
+      <td *ngIf="lis.id== this.id">{{liste.nomET1}}</td>
+      <td *ngIf="lis.id== this.id">{{liste.appogeT2}}</td>
+      <td *ngIf="lis.id== this.id">{{liste.nomET2}}</td>
+      <td *ngIf="lis.id== this.id">{{liste.appogeT3}}</td>
+      <td *ngIf="lis.id== this.id">{{liste.nomET3}}</td>
+      <td *ngIf="lis.id== this.id">{{listeId.nbr}}</td>
+      <td *ngIf="lis.id== this.id">{{listeId.sujet}}</td>
+      <td *ngIf="lis.id== this.id"><button (click) = "enregister(liste.idE,liste.appogeT1,liste.appogeT2,liste.appogeT3,liste.nomET1,liste.nomET2,liste.nomET3,listeId)" class = "btn btn-success" style="margin-left: 10px">Accepter</button></td>
+      <td *ngIf="lis.id== this.id"><button (click) = "refuse(liste.idE)" class = "btn btn-danger" style="margin-left: 10px"> Refuser</button></td>
+    </tr>
+</tbody>
+</ng-container>
+
+</table><br>
+<br>
+</div>
+</div>

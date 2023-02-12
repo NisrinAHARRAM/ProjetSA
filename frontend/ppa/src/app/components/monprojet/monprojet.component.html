@@ -1,0 +1,155 @@
+<div class="container">
+
+  <ul class="titre">
+    <li>
+        <h1 class="titrep">La liste des sujets</h1>
+    </li>
+    <li class="buttonl">
+      <button  (click) = "drive()" class="btn btn-success">Ajouter un drive</button>
+    </li>
+</ul>
+
+
+          <table  class="mat-elevation-z8">
+      
+              <thead>
+              <tr>
+                <th scope="col"> Appoge 1</th>
+                <th scope="col"> Nom complet 1</th>
+                <th scope="col">Appoge 2</th>
+                <th scope="col">Nom complet 2</th>
+                <ng-container  *ngFor=" let lis of listOfEtudiants ">
+                <ng-container  *ngFor="let listeId of lis.listes">
+                <ng-container *ngFor="let liste of listeId.validations">
+                  <ng-container *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id|| liste.appogeT3==this.id ">
+                <ng-container *ngIf="+listeId.nbr!=2" > 
+                <th scope="col"> Appoge 3</th>
+                <th scope="col"> Nom complet 3</th>
+                </ng-container>
+                </ng-container>
+                </ng-container>
+                </ng-container>
+              </ng-container>
+                <th scope="col">Nom encadrant </th>
+                <th scope="col">Sujet </th>
+                <th scope="col"></th>
+                <th scope="col">Actions</th>
+                <th scope="col"></th>
+                <ng-container  *ngFor=" let lis of listOfEtudiants ">
+                <ng-container   *ngFor="let listeId of lis.listes">
+                <ng-container *ngFor="let liste of listeId.validations"> 
+                <ng-container *ngFor="let note of liste.notes" >
+                <ng-container *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id ">
+                <th scope="col">Note project</th>
+                
+              </ng-container>
+                </ng-container>
+                </ng-container>
+                </ng-container>
+              </ng-container>
+              </tr>
+              </thead>
+              
+              <ng-container  *ngFor=" let lis of listOfEtudiants ">
+              <tbody   *ngFor="let listeId of lis.listes">
+              <tr *ngFor="let liste of listeId.validations"> 
+                <td  *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id " >{{liste.appogeT1}}</td>
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id ">{{liste.nomET1}}</td>
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id ">{{liste.appogeT2}}</td>
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id ">{{liste.nomET2}}</td>
+              <ng-container *ngIf="+listeId.nbr!=2" >
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id ">{{liste.appogeT3}}</td>
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id ">{{liste.nomET3}}</td>
+                </ng-container>
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id ">{{lis.nom +" "+lis.prenom}}</td>
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id  || liste.appogeT3==this.id ">{{listeId.sujet}}</td>
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id  ">
+                <div class="row mb-2" style="width: 140px;">
+                <button (click) = "demande(liste.idv)" class = "btn btn-danger" style="margin-left: 10px">Demande de rendez vous</button>
+                <br>
+                <button (click) = "valider(liste.idv)" class = "btn btn-success" style="margin-left: 10px"> Terminer project</button>
+              </div>
+              </td>
+      
+              <ng-container *ngFor="let link of liste.driveLinks" >
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id  " style="color: rgb(71, 188, 238);"><a href="{{link.link}}">lien</a></td>
+              </ng-container>
+              
+               <ng-container *ngFor="let list of liste.rendez" >
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id " >{{list.date+" "+list.heure}}
+                <button (click) = "valdate(liste.idv)" class = "btn btn-secondary" style="margin-left: 10px"> valider date</button>
+                </td>
+              </ng-container>
+              <ng-container *ngFor="let note of liste.notes" >
+                <td *ngIf="liste.appogeT1== this.id || liste.appogeT2==this.id || liste.appogeT3==this.id " style="color: rgb(71, 238, 157);" >{{note.note}}</td>
+                
+              </ng-container>
+              </tr>
+          </tbody>
+         </ng-container>
+          </table>
+      
+      
+      <!-- <h1><b><i> Remarque de les jury</i></b></h1> -->
+      
+      <div >
+      <ng-container *ngFor=" let lis of listOfEtudiants " >
+      <ng-container *ngFor="let listeId of lis.listes">
+      <ng-container *ngFor="let liste of listeId.validations">
+      <div *ngFor="let form of liste.forms" class="card text-white bg-success mb-3" style="max-width: 18rem;" >
+        <div *ngIf=" form.appogeT1== this.id ||form.appogeT2== this.id||form.appogeT3== this.id " class="card-header">Les remarques des jurys</div>
+      <div *ngIf=" form.appogeT1== this.id ||form.appogeT2== this.id||form.appogeT3== this.id "class="display col " >
+      <b><p *ngIf=" form.appogeT1== this.id" class="dd">remarque et note de Jury</p></b>
+      <b ><p *ngIf=" form.appogeT1== this.id">remarque :</p></b><p *ngIf=" form.appogeT1== this.id" >{{form.nomET1}}</p>
+      <b><p *ngIf=" form.appogeT2== this.id">remarque :</p></b><p *ngIf=" form.appogeT2== this.id" >{{form.nomET2}}</p>
+      <b><p *ngIf=" form.appogeT3== this.id">remarque :</p></b><p *ngIf=" form.appogeT3== this.id" >{{form.nomET3}}</p>
+      <p *ngIf=" form.appogeT1== this.id" ><b>note presentation   :</b>{{form.noteP1}}</p>
+      <p *ngIf=" form.appogeT2== this.id" ><b>note presentation   :</b>{{form.noteP2}}</p>
+      <p *ngIf=" form.appogeT3== this.id" ><b>note presentation   :</b>{{form.noteP3}}</p>
+      <p><b>note de rapport :</b>{{form.note}}</p>
+      <p><b>note de application :</b>{{form.notea}}</p>
+      </div> 
+      </div> 
+      </ng-container>
+      </ng-container>
+      </ng-container>
+      </div>
+      <!-- <ng-container *ngFor=" let lis of listOfEtudiants " >
+        <ng-container *ngFor="let listeId of lis.listes">
+        <ng-container *ngFor="let liste of listeId.validations">
+      <div class="card text-white bg-success mb-4" style="max-width: 18rem;">
+        <div class="card-header">Les remarques et les notes des jurys</div>
+       
+          <div *ngFor="let form of liste.forms" class="spacing " >
+          <div *ngIf=" form.appogeT1== this.id ||form.appogeT2== this.id||form.appogeT3== this.id "class="display col " >
+        <div class="card-body"> -->
+          <!-- <h5 class="card-title">Success card title</h5> -->
+          <!-- <b><p class="card-text" *ngIf=" form.appogeT1== this.id" class="dd">remarque et note de Jury</p></b>
+          <b ><p class="card-text" *ngIf=" form.appogeT1== this.id">remarque :</p></b><p *ngIf=" form.appogeT1== this.id" >{{form.nomET1}}</p>
+          <b><p class="card-text" *ngIf=" form.appogeT2== this.id">remarque :</p></b><p *ngIf=" form.appogeT2== this.id" >{{form.nomET2}}</p>
+          <b><p class="card-text" *ngIf=" form.appogeT3== this.id">remarque :</p></b><p *ngIf=" form.appogeT3== this.id" >{{form.nomET3}}</p>
+          <p class="card-text" *ngIf=" form.appogeT1== this.id" ><b>note presentation   :</b>{{form.noteP1}}</p>
+          <p class="card-text" *ngIf=" form.appogeT2== this.id" ><b>note presentation   :</b>{{form.noteP2}}</p>
+          <p class="card-text" *ngIf=" form.appogeT3== this.id" ><b>note presentation   :</b>{{form.noteP3}}</p>
+          <p class="card-text"><b>Note de rapport :</b>{{form.note}}</p>
+          <p class="card-text"><b>Note de l'application :</b>{{form.notea}}</p>
+        </div>
+      </div>
+      </div>
+  </div>
+
+</ng-container>
+</ng-container>
+</ng-container> -->
+
+
+
+</div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>     
+
+

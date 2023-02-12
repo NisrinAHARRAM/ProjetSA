@@ -1,0 +1,44 @@
+<div class="container">
+    <h1 class="titre">Selectionner un etablisement</h1>
+<ng-container  *ngIf="this.dee=='abed'"> 
+<div class="row mb-3"> 
+    <div class="col-lg-4" id="pip" style="margin-left: 110px;"> 
+        <img  (click)="goToPage1('science')" src="./assets/images/sience.jpg" class="img-circle myimg" alt="Cinque Terre"> 
+        <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Nom université :</b>Faculté des Sciences</h4>  
+ 
+    </div> 
+    <div class="col-lg-4" id="pip"> 
+        <img  (click)="goToPage1('Juridiques')"  src="./assets/images/jery.jpg" class="img-circle myimg" alt="Cinque Terre"> 
+        <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Nom université :</b> Faculté des Sciences Juridiques, Economiques et Sociales</h4>  
+         
+    </div> 
+    <div class="col-lg-4" id="pip"> 
+        <img  (click)="goToPage1('Appliquées')" src="./assets/images/ensa.jpg" class="img-circle myimg" alt="Cinque Terre"> 
+        <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Nom université :</b>Ecoles Nationales des Sciences Appliquées</h4>  
+    </div> 
+</div> 
+</ng-container> 
+<!-- ////////////////////////////////////: --> 
+<ng-container  *ngIf="this.dee=='zohr'"> 
+    <div class="row mb-3"> 
+        <div class="col-lg-4" id="pip1" style="margin-left: 170px;"> 
+            <img  (click)="goToPage1('abed')" src="./assets/images/OOL.png" class="img-circle myimg" alt="Cinque Terre"> 
+            <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Nom université :</b>FACULTÉ DES SCIENCES</h4>  
+          
+        </div> 
+        <div class="col-lg-4" id="pip1"> 
+            <img  (click)="goToPage1('zohr')"  src="./assets/images/jrr.jpg" class="img-circle myimg" alt="Cinque Terre"> 
+            <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Nom université :</b>ECOLE NATIONALE DE COMMERCE ET DE GESTION </h4>  
+             
+             
+        </div> 
+        <div class="col-lg-4" id="pip1"> 
+            <img  (click)="goToPage1('v')" src="./assets/images/ADD.png" class="img-circle myimg" alt="Cinque Terre"> 
+            <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Nom université :</b>FACULTÉ DES LETTRES ET DES SCIENCES HUMAINES </h4>  
+       
+        </div> 
+ 
+    </div> 
+    </ng-container> 
+ 
+ </div>

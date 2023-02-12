@@ -1,0 +1,98 @@
+
+    <!-- <table  class="table table-sm">
+
+      <thead>
+      <tr>
+        <th scope="col">etudiant Appoge 1</th>
+        <th scope="col">etudiant nom complet 1</th>
+        <th scope="col">etudiant Appoge 2</th>
+        <th scope="col">etudiant nom complet 2</th>
+        <th scope="col">etudiant Appoge 2</th>
+        <th scope="col">etudiant nom complet 2</th>
+        <th scope="col">nom bre etudians dans suject</th>
+        <th scope="col">suject </th>
+        <th scope="col">validation </th>
+      </tr>
+      </thead>
+      
+      <ng-container  *ngFor=" let lis of listOfEtudiants ">
+      <tbody *ngFor="let listeId of lis.listes">
+      <tr  *ngFor="let liste of listeId.enregistrers" >
+        <td  *ngIf="lis.id== this.id" >{{liste.appogeT1}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.nomET1}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.appogeT2}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.nomET2}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.appogeT3}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.nomET3}}</td>
+        <td *ngIf="lis.id== this.id">{{listeId.nbr}}</td>
+        <td *ngIf="lis.id== this.id">{{listeId.sujet}}</td>
+        <td *ngIf="lis.id== this.id"><button (click) = "enregister(liste.idE,liste.appogeT1,liste.appogeT2,liste.appogeT3,liste.nomET1,liste.nomET2,liste.nomET3,listeId)" class = "btn btn-success" style="margin-left: 10px"> accepter</button></td>
+        <td *ngIf="lis.id== this.id"><button (click) = "refuse(liste.idE)" class = "btn btn-danger" style="margin-left: 10px"> refuze</button></td>
+      </tr>
+  </tbody>
+  </ng-container>
+  
+  </table><br>
+  <br> -->
+  <br>
+  <!-- <h1>etudiants valiation de pfe </h1> -->
+  <div class="container">
+    <h1>Mes condaidats</h1>
+  <table   class="mat-elevation-z8">
+  
+      <thead>
+      <tr>
+        <th scope="col"> Appoge 1</th>
+        <th scope="col"> Nom complet 1</th>
+        <th scope="col">Appoge 2</th>
+        <th scope="col">Nom complet 2</th>
+        <th scope="col"> Appoge 3</th>
+        <th scope="col"> Nom complet 3</th>
+        <th scope="col">Nombre des etudiants</th>
+        <th scope="col">Sujet </th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <ng-container  *ngFor=" let lis of listOfEtudiants ">
+          <ng-container   *ngFor="let listeId of lis.listes">
+          <ng-container *ngFor="let liste of listeId.validations"> 
+          <ng-container *ngFor="let note of liste.notes" >
+          <ng-container *ngIf="lis.id== this.id">
+          <th scope="col">Note De projet</th>
+        </ng-container>
+          </ng-container>
+          </ng-container>
+          </ng-container>
+        </ng-container>
+      </tr>
+      </thead>
+      
+      <ng-container  *ngFor=" let lis of listOfEtudiants ">
+      <tbody *ngFor="let listeId of lis.listes">
+      <tr *ngFor="let liste of listeId.validations">
+        <td  *ngIf="lis.id== this.id" >{{liste.appogeT1}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.nomET1}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.appogeT2}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.nomET2}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.appogeT3}}</td>
+        <td *ngIf="lis.id== this.id">{{liste.nomET3}}</td>
+        <td *ngIf="lis.id== this.id">{{listeId.nbr}}</td>
+        <td *ngIf="lis.id== this.id">{{listeId.sujet}}</td>
+        <td *ngIf="lis.id== this.id"><button  (click) ="jeru(liste.idv)" class="btn btn-success">Ajouter jury</button></td>
+        <td *ngIf="lis.id== this.id"><button  (click) ="lste(this.id,listeId.sujet)" class="btn btn-success">Liste des jurys</button></td>
+        <td *ngIf="lis.id== this.id"><button (click) = "note(this.id,liste.idv)" class = "btn btn-info"> Ajouter note</button></td>
+        <ng-container *ngFor="let link of liste.driveLinks">
+        <td *ngIf="lis.id== this.id"><button (click) = "publie(link.link,liste.idv)" class = "btn btn-secondary"> Publie</button></td>
+        <td *ngIf="lis.id== this.id" style="color: rgb(71, 188, 238);"><a href="{{link.link}}">lien</a></td>
+        </ng-container>
+        <ng-container *ngFor="let note of liste.notes" >
+          <td *ngIf="lis.id== this.id"  style="color: rgb(71, 238, 157);" >{{note.note}}</td>
+        </ng-container>
+        
+      </tr>
+  </tbody>
+  </ng-container>
+  </table>
+  </div>

@@ -1,0 +1,20 @@
+.titre{
+    font-size: medium;
+    text-align: center;
+    margin-top: 60px;
+}
+h1{
+    font-size: 40px;
+}
+h2{ color: rgb(13, 110, 253);
+    margin-top: 50px;
+}
+.parent{
+    align-content: center;
+    border: 1px;
+    border-style: groove;
+    margin-top: 100px;
+    width: 40%;
+    height: 50%;
+    margin-left: 350px;
+}

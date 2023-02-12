@@ -1,0 +1,37 @@
+<div class="container">
+
+  <h1>Liste des sujets auxquels vous êtes inscrit</h1>
+<table  class="mat-elevation-z8">
+
+    <thead>
+    <tr>
+      <th scope="col">Nom Etudiant 1 </th>
+      <th scope="col">Nom Etudiant 2 </th>
+      <ng-container *ngFor=" let lis of listOfEtudiants " >
+        <ng-container *ngFor=" let list of lis.listes ">
+        <ng-container  *ngFor=" let va of list.enregistrers "> 
+        <ng-container *ngIf=" va.appogeT1 == this.id || va.appogeT2 == this.id ||va.appogeT3 == this.id ">
+        <th scope="col" *ngIf="va.nomET3!=null">nom Etudiant 3 </th>
+        </ng-container></ng-container></ng-container></ng-container>
+      <th scope="col">  Sujet</th>
+      <th scope="col">  Nom encadrant</th>
+      
+      
+    </tr>
+    </thead>
+    <ng-container *ngFor=" let lis of listOfEtudiants " >
+    <tbody *ngFor=" let list of lis.listes ">
+    <tr  *ngFor=" let va of list.enregistrers "> 
+      <td  *ngIf=" va.appogeT1 == this.id || va.appogeT2 == this.id ||va.appogeT3 == this.id " >{{va.nomET1}}</td>
+      <td *ngIf=" va.appogeT1 == this.id || va.appogeT2 == this.id ||va.appogeT3 == this.id "  >{{va.nomET2}}</td>
+      <ng-container *ngIf="va.nomET3!=null">
+      <td *ngIf=" va.appogeT1 == this.id || va.appogeT2 == this.id ||va.appogeT3 == this.id " >{{va.nomET3}}</td>
+    </ng-container>
+      <td *ngIf=" va.appogeT1 == this.id || va.appogeT2 == this.id ||va.appogeT3 == this.id " >{{list.sujet}}</td>
+      <td *ngIf=" va.appogeT1 == this.id || va.appogeT2 == this.id ||va.appogeT3 == this.id " >{{lis.nom + "  "+lis.prenom}}</td>
+  
+  </tr>
+  </tbody>
+  </ng-container>
+  </table>
+  </div>

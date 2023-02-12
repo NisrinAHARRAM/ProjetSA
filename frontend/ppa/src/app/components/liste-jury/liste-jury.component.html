@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>La liste des jurys</h1>
+<table   class="mat-elevation-z8">
+
+    <thead>
+    <tr>
+      <th scope="col">Nom de prof </th>
+      <th scope="col">Prenom de prof </th>
+      <th scope="col">Departement </th>
+      <th scope="col">Email</th>
+      <th scope="col">  </th>
+      
+    </tr>
+    </thead>
+
+    <tbody >
+    <tr *ngFor=" let lis of listOfEtudiants " >
+     
+      <td  *ngIf="lis.id != this.id " >{{lis.nom}}</td>
+      <td *ngIf="lis.id!= this.id" >{{lis.prenom}}</td>
+      <td *ngIf="lis.id!= this.id">{{lis.departement}}</td>
+      <td *ngIf="lis.id!= this.id ">{{lis.email}}</td>
+      <td *ngIf="lis.id!= this.id "><button (click) = "demande(this.id,lis.id)" class = "btn btn-info"> Demander</button></td>
+  </tr>
+</tbody>
+</table>
+<</div>
+<!-- 
+<table  class="table table-sm">
+
+    <thead>
+    <tr>
+      <th scope="col">nom encadrent </th>
+      <th scope="col">prenom encadrent </th>
+      <th scope="col">departement </th>
+      <th scope="col">  suject</th>
+      <th scope="col">  date setnence</th>
+      
+    </tr>
+    </thead>
+    <ng-container *ngFor=" let lis of listOfEtudiants " >
+    <ng-container *ngFor=" let list of lis.listes " >
+    <ng-container  *ngFor=" let va of list.validations ">
+    <tbody *ngFor=" let gr of va.jerys">
+    <tr *ngFor=" let rend of va.rendez" > 
+      <td  *ngIf=" gr.idE == this.id " >{{lis.nom}}</td>
+      <td *ngIf=" gr.idE== this.id" >{{lis.prenom}}</td>
+      <td *ngIf=" gr.idE== this.id">{{lis.departement}}</td>
+      <td *ngIf=" gr.idE== this.id ">{{list.sujet}}</td>
+      <td *ngIf=" gr.idE== this.id ">{{rend.heure+" "+rend.date}}</td>
+ </tr>
+</tbody>
+</ng-container></ng-container>
+</ng-container>
+</table> -->

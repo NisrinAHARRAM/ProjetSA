@@ -1,0 +1,166 @@
+package com.example.demo.controller;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import net.bytebuddy.utility.RandomString;
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.ValidationException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.repository.EtudiantRepository;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.excpetion.ResourceNotFoundException;
+import com.example.demo.model.Etudiant;
+import com.example.demo.model.Liste;
+import com.example.demo.service.EtudiantService;
+import com.example.demo.service.ListeService;
+import com.example.demo.site.Utility;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+@RestController
+//@RequestMapping("/etudiant")
+public class EtudiantController {
+
+
+
+@Autowired
+EtudiantService en;
+@Autowired
+EtudiantRepository at;
+@Autowired
+ListeService ls;
+@GetMapping("/employees")
+public List<Etudiant> getAllEmployees(){
+	return en.getAllEmployees();
+}
+
+@GetMapping("/etudiant")	
+public List<Etudiant> getAllEtudiants(){
+	  return en.getAllEtudiants();
+}
+@PostMapping("/etudiant")
+public void addEtudiant(@RequestBody Etudiant p) {
+	  String emailRegex = ".+@uae\\.ac\\.ma$";
+	  if(p.getEmaiE().matches(emailRegex)){
+		 en.addEtudiant(p);
+		 }	
+}
+	
+
+@GetMapping("/employees/{id}")
+public ResponseEntity<Etudiant> getEmployeeById(@PathVariable Long id) {
+	return en.getEmployeeById(id);
+}
+/*
+@DeleteMapping("/delte")
+public void deleteEtudiant(@RequestBody Long id) {
+	en.deleteEtudiant(id);
+}*/
+
+@PutMapping("/employees/{id}")
+public ResponseEntity<Etudiant> updateEmployee(@PathVariable Long id, @RequestBody Etudiant employeeDetails){
+	return en.updateEmployee( id, employeeDetails);
+}
+@DeleteMapping("/employees/{id}")
+public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id){
+	return en.deleteEmployee(id);
+}
+/*
+@PutMapping("/update/{id}")
+public ResponseEntity<?> updateTodo(@PathVariable Long id, @RequestBody Etudiant todo ){
+	
+	
+		return en.updateTodo(id,todo);
+	
+}
+
+
+@GetMapping("/findbyid/{id}")
+public ResponseEntity<?> findById(@PathVariable Long id){
+	
+	
+		return en.findById(id);
+
+}*/
+/*
+@PutMapping("update/{id}")
+public ResponseEntity<?> updateTodo(@PathVariable Long id, @RequestBody Etudiant todo ){
+	
+	if(this.at.findById(id).isPresent()) {
+		
+		todo.setAppoge(id);
+		return new ResponseEntity<>(this.at.save(todo),HttpStatus.OK);
+	}
+	else {
+		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+}
+
+
+@GetMapping("/findbyid/{id}")
+public ResponseEntity<?> findById(@PathVariable Long id){
+	
+	if(this.at.findById(id).isPresent()) {
+		
+		return new ResponseEntity<>(this.at.findById(id),HttpStatus.OK);
+	}else {
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+	}}*/
+//create Etudiant rest api
+@PostMapping("/employees")
+public String createEmployee(@RequestBody Etudiant employee ,Model model,HttpServletRequest request) 
+		throws UnsupportedEncodingException, MessagingException {
+ //String emailRegex = ".+@etu\\.uae\\.ac\\.ma$";
+ //if(employee.getEmaiE().matches(emailRegex)){
+	en.register(employee);
+	String site=Utility.getSiteURL(request);
+	en.sendVerificationEmail(employee , site);
+	model.addAttribute("page title","registration succeeded");
+
+	return "register/register_succces";
+}
+@GetMapping("/verify")
+public String verifyUser(@Param("code") String code) {
+    if (en.verify(code)) {
+        return "<div class='container text-center'>"+
+       " <h3>Congratulations, your account has been verified.</h3>"+
+        "<a href='http://localhost:4200'>login for home</a>"+
+    "</div>";
+    } else {
+        return "<h1> Sorry, we could not verify account. It maybe already verified,"
+        		+ "        or verification code is incorrect "
+        		+ "<a href='http://localhost:4200/add'>reteurn pour repter inscription</a>";
+    }
+}
+
+
+@GetMapping("/appoge/{email}")
+public Long getAppogeByEmaiE(@PathVariable String email) {
+    return en.getAppogeByEmaiE(email);
+}
+
+
+
+
+}
+

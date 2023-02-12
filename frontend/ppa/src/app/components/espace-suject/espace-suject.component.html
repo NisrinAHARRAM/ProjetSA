@@ -1,0 +1,63 @@
+<div class="container">
+
+    <button (click) = "home()" class="btn">
+        <img class="card" src="../assets/images/accueil.png" alt="Card image cap" style=" border: none;border-radius: 50px; width: 80px;height: 80px;margin-left: 50px;">
+   </button>
+<br>
+<ul class="test">
+    <li>
+        <div class="list-group">
+            <button  (click)="affichecon()" class="list-group-item list-group-item-action " routerLinkActive="active">Les condaidats</button>
+            <button  (click)="remarque2()" class="list-group-item list-group-item-action " routerLinkActive="active">Espace des jurys</button>
+            <button  (click)="suject()" class="list-group-item list-group-item-action " routerLinkActive="active">Les sujets</button>
+            <button  (click)="demande()" class="list-group-item list-group-item-action " routerLinkActive="active">Les demandes</button>
+          </div>
+
+    </li>
+
+    <li style="margin-left: 150px;">
+    <h1>Les sujets</h1>
+    <nav class="navbar navbar-expand-lg">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <button  (click) ="updateEmployee()" class="btn">
+                <div class="card" style="width: 15rem;height: 5rem; background-color: #FCFFA6;">
+                     <div class="card-body">
+                      <h3 class="card-text">Ajouter un sujet</h3>
+                    </div>
+                  </div>
+                </button>
+            </li>
+            
+            <li class="nav-item">
+              <button (click)="affiche()" class="btn">
+                <div class="card" style="width: 15rem;height: 5rem; background-color: #C1FFD7;">
+                     <div class="card-body">
+                      <h3 class="card-text">Liste des sujets</h3>
+                    </div>
+                  </div>
+                </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    </li>
+</ul>
+
+
+
+    
+
+
+
+
+
+    <!-- <button  (click)="affiche()" class="btn btn-success">liste les suject</button><br><br>
+    <button  (click) ="updateEmployee()" class="btn btn-success">ajouter suject</button><br><br> -->
+    <!-- <button  (click) ="mod()" class="btn btn-success">les demmende rendez vous</button><br><br> -->
+    <!-- <button   (click) ="remarque()" class="btn btn-success">espace de jery</button> -->
+    
+    
+    </div>

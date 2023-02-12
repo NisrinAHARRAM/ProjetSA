@@ -1,0 +1,36 @@
+body{ 
+    background: #eceff1 !important; 
+} 
+#bb{ 
+    color:white !important; 
+} 
+.myimg{ 
+width: 200px; 
+height: 200px; 
+margin: 0 auto; 
+display: block; 
+padding-bottom:10px; 
+    border-radius: 50%;  
+} 
+ 
+#pip{ 
+    width: 280px; 
+    height: 280px; 
+    border:0px solid white; 
+    border-radius: 10px; 
+    margin-left: 50px; 
+    margin-top: 40px; 
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19); 
+    background-color:white; 
+} 
+#bom{ 
+     
+    margin:10px 0 0 250px; 
+     
+ 
+}
+.titre{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 50px;
+}

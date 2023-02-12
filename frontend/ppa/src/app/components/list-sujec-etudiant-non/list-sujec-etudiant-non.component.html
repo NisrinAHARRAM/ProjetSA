@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="titre">Les sujets existent</h1>
+
+<ng-container *ngFor=" let lis of listOfEncadrants" > 
+    <ng-container  *ngFor="let listeId of lis.listes"> 
+    <ng-container *ngIf="this.dee==lis.departement" > 
+        <ul> 
+            <li> 
+              <div class="row mb-3"> 
+                <div class="col-lg-4" id="pip1" style="margin-left: 40px;"> 
+                    <h4 style="margin-left: 10px; margin-top: 20px;"><b style="color: rgb(0,174,191)">Sujet :</b>{{listeId.sujet}}</h4>  
+                    <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Description :</b>{{listeId.desc}}</h4>  
+                    <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Nombre: </b>{{listeId.nbr}}</h4> 
+                    <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)"> Nom prof: </b>{{lis.nom}}  {{lis.prenom}}</h4> 
+                    <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Email prof: </b>{{lis.email}}</h4> 
+                </div> 
+                </div> 
+            </li> 
+        </ul> 
+    </ng-container>  
+    </ng-container> 
+    </ng-container>
+</div>

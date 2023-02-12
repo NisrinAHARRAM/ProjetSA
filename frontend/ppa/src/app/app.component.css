@@ -1,0 +1,66 @@
+.btn:hover{
+    border: none;
+    background-color: #0081C9;
+    color: white;
+}
+.btn{
+    color: #0081C9;
+}
+.navbar-nav{
+    margin-left: 50px;
+}
+
+.nav{
+    border: 1.3px;
+    border-style: ridge;
+}
+
+footer{
+    background-color: #0081C9;
+    height: 120px;
+    margin-top: 100px;
+}
+img{
+    margin: 3px;
+}
+.insta{
+    border: #0081C9;
+    margin-top: 5px;
+    width: 21px;
+    height: 21px;
+}
+.face{
+    border: #0081C9;
+    width: 25px;
+    height: 25px;
+}
+.email{
+    border: #0081C9;
+    width: 25px;
+    height: 25px;
+}
+.ulf{
+    display: inline-flex;
+    list-style: none;
+    margin-left: 300px;
+    margin-top: 30px;
+}
+h2{
+    text-align: center;
+    color: white;
+    margin-left: 400px;
+    margin-top: 50px;
+}
+.logo{
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
+}
+.logof{
+    width: 90px;
+    height: 90px;
+}
+.ulp{
+    display: inline-flex;
+    list-style: none;
+}

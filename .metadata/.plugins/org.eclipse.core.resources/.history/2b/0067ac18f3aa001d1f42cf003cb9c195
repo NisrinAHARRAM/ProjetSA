@@ -1,0 +1,207 @@
+package com.example.demo.service;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+
+
+import com.example.demo.repository.EtudiantRepository;
+import com.example.demo.repository.ListeRepository;
+
+import net.bytebuddy.utility.RandomString;
+
+
+import com.example.demo.excpetion.ResourceNotFoundException;
+import com.example.demo.model.Etudiant;
+
+@Service
+public class EtudiantService {
+@Autowired
+EtudiantRepository en;
+@Autowired
+ListeRepository ls;
+@Autowired
+private JavaMailSender mailSender;
+@Autowired
+private EtudiantRepository etudiantRepository;
+
+
+
+
+public List<Etudiant> getAllEtudiants(){
+				   return en.findAll();
+	}
+
+public List<Etudiant> getAllEmployees(){
+	return en.findAll();
+}
+
+public Optional<Etudiant> serchEtudiants(Long id){
+	   return en.findById(id);
+}	   
+ public void addEtudiant(Etudiant p) {
+   
+     	 en.save(p);
+ }
+ public void deleteEtudiant(Long id) {
+		en.deleteById(id);
+	}
+
+public Etudiant updateEtudiant(Etudiant p) {
+				
+				  return (Etudiant) en.save(p);
+	}
+				
+public ResponseEntity<Map<String, Boolean>> deleteEmployee(Long id){
+	Etudiant etudiant = en.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+	en.delete(etudiant);
+	Map<String, Boolean> response = new HashMap<>();
+	response.put("deleted", Boolean.TRUE);
+	return ResponseEntity.ok(response);
+}
+
+public ResponseEntity<Etudiant> updateEmployee( Long id, Etudiant employeeDetails){
+	Etudiant employee = en.findById(id)
+			.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+	employee.setAppoge(employeeDetails.getAppoge());
+	employee.setNomE(employeeDetails.getNomE());;
+	employee.setPrenomE(employeeDetails.getPrenomE());
+	employee.setFilierE(employeeDetails.getFilierE());
+	employee.setEmaiE(employeeDetails.getEmaiE());
+	employee.setMotpasE(employeeDetails.getMotpasE());
+	Etudiant updatedEmployee = en.save(employee);
+	return ResponseEntity.ok(updatedEmployee);
+}
+public Etudiant register(Etudiant employee) {
+		employee.setEnabled(false);
+		String randomcode = RandomString.make(64);
+		employee.setVerificationCode(randomcode);
+		
+		return en.save(employee);
+
+	   // sendVerificationEmail(employee, randomcode);
+	}
+
+public void sendVerificationEmail(Etudiant user ,String siteURL)
+		  		throws MessagingException, UnsupportedEncodingException {
+		    String toAddress = user.getEmaiE();
+		    //String fromAddress = "Your email address";
+		  
+		    String senderName = "univetsty";
+		    String subject = "Please verify your registration";
+		   
+	        String content = "Dear [[name]],<br>"
+	                + "Please click the link below to verify your registration:<br>"
+	                + "<h3><a href=\"[[URL]]\" target=\"_self\">VERIFY</a></h3>"
+	                + "Thank you,<br>"
+	                + "Your company name.";
+	        
+		    MimeMessage message = mailSender.createMimeMessage();
+		    MimeMessageHelper helper = new MimeMessageHelper(message);
+		    
+		   
+		    helper.setFrom("ahniso199@gmail.com", senderName);
+		    helper.setTo(toAddress);
+		    helper.setSubject(subject);
+		     
+		    content = content.replace("[[name]]", user.getNomE());
+		    String verifyURL = siteURL + "/verify?code=" + user.getVerificationCode();
+		     
+		    content = content.replace("[[URL]]", verifyURL);
+		     
+		    helper.setText(content, true);
+		     
+		    mailSender.send(message);
+		     
+		
+}
+
+
+public boolean verify(String verificationCode) {
+    Etudiant user = en.findByVerificationCode(verificationCode);
+     
+    if (user == null || user.isEnabled()) {
+        return false;
+    } else {
+        user.setVerificationCode(null);
+        user.setEnabled(true);
+        en.save(user);
+         
+        return true;
+    }
+     
+}
+public ResponseEntity<Etudiant> getEmployeeById( Long id) {
+	Etudiant employee = en.findById(id)
+			.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+	return ResponseEntity.ok(employee);
+}
+
+
+
+
+public Etudiant createEmployee(Etudiant employee) {
+	
+		return en.save(employee);
+	}
+
+
+public Etudiant getEtudiantById(Long id) {
+    return etudiantRepository.findById(id).orElse(null);
+}
+
+public Etudiant findById(Long id) {
+    return etudiantRepository.findById(id).orElse(null);
+}
+
+/*
+public ResponseEntity<?> updateTodo(@PathVariable Long id, @RequestBody Etudiant todo ){
+	
+	if(this.en.findById(id).isPresent()) {
+		
+		todo.setAppoge(id);
+		return new ResponseEntity<>(this.en.save(todo),HttpStatus.OK);
+	}
+	else {
+		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+}
+
+
+
+public ResponseEntity<?> findById(@PathVariable Long id){
+	
+	if(this.en.findById(id).isPresent()) {
+		
+		return new ResponseEntity<>(this.en.findById(id),HttpStatus.OK);
+	}else {
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+	}
+
+}*//*
+public boolean emailexit(String email) {
+	return ls.findByEmail(email);	
+}*/
+
+
+public Long getAppogeByEmaiE(String email) {
+    Long etudiant = en.findByEmaiE(email);
+        return etudiant;
+}
+
+
+
+}
+

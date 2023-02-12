@@ -1,0 +1,32 @@
+.btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+.container{
+    margin-top: 50px;
+}
+.titre{
+  display: inline-flex;
+  list-style: none;
+}
+.buttonl{
+  margin-left: 570px;
+}
+.titrep{
+  font-weight: bold;
+}
+
+table {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+th{
+  text-align: center;
+  padding: 10px;
+} 
+td{
+  text-align: center;
+  padding: 10px;
+}

@@ -1,0 +1,29 @@
+<div class="container">
+<h2>Hello {{etudiant.nomE}}</h2>
+<table  class="table table-sm">
+    <thead>
+    <tr>
+      <th scope="col">Sujet</th>
+      <th scope="col">Description</th>
+      <th scope="col">Nom prof</th>
+      <th scope="col">Prenom prof</th>
+      <th scope="col">Email prof</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <ng-container *ngFor=" let lis of listOfEncadrants" >
+      <tbody  *ngFor="let listeId of lis.listes">
+      <tr *ngIf="this.et==lis.departement" >
+        <td>{{listeId.sujet}}</td>
+        <td>{{listeId.desc}}</td>
+        <td>{{lis.nom}}</td>
+        <td>{{lis.prenom}}</td>
+        <td>{{lis.email}}</td>
+        <td>{{listeId.nbr}}</td>
+        <td><button (click) = "enretudiant(listeId.id)" class = "btn btn-info"> Enregistrer</button></td>
+      </tr>
+      </tbody>
+    </ng-container>
+    </table>
+  </div>

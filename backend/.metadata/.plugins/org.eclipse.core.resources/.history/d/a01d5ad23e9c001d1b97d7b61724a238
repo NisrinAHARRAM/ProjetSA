@@ -1,0 +1,131 @@
+package com.example.demo.model;
+
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.springframework.data.annotation.Transient;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data @AllArgsConstructor @NoArgsConstructor
+@Entity
+@Table(name="encadrants")
+public class Encadrant {
+	@Id
+	@Column(name = "id",unique = true)
+	private long id;
+
+	@Column(name = "email", nullable = false, unique = true)
+	private String email;
+	
+	@Column(name = "Mot de passe",nullable = false, unique = true)
+	@Transient
+	private String password;
+	
+	@Column(name = "Nom",nullable = false)
+	private String nom;
+	
+	@Column(name = "Prenom",nullable = false)
+	private String prenom;
+	
+	@Column(name = "Departement",nullable = false)
+	private String departement;
+	
+	@Column(name = "verification_code", length = 64)
+	private String verificationCode;  
+	private boolean enabled;
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="encadrant",fetch = FetchType.LAZY)
+	private Collection<Liste>  listes;
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="encadrant",fetch = FetchType.LAZY)
+	private Collection<Groupe>  groupes;
+
+/*
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+    
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getDepartement() {
+		return departement;
+	}
+
+	public void setDepartement(String departement) {
+		this.departement = departement;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+		*/
+	}
+	
+	
+
+	
+	
+	
+	
+
+
+}
+

@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>Les universités</h1>
+<ng-container *ngFor=" let lis of listOfEtudiants " >
+    <ul>
+      <li>
+    <div class="col-lg-4" id="pip">
+       <img   src="./assets/images/mmm.png" class="img-circle myimg" alt="Cinque Terre">
+        <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Nom université :</b>{{lis.nomUn}}</h4> 
+        <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)"> Domaine Encadrant: </b>{{lis.encadrentUn}}</h4>
+        <h4 style="margin-left: 10px;"><b style="color: rgb(0,174,191)">Domaine Etudiant: </b>{{lis.etudiantUn}}</h4>
+       
+       <style>
+           body{
+               background: #eceff1 !important;
+           }
+           #bb{
+               color:white !important;
+           }
+           .myimg{
+            margin-top: 10px;
+             width: 150px;
+             height: 150px;
+             margin: 0 auto;
+             display: block;
+             padding-bottom:10px;
+             border-radius: 50%; 
+           }
+           
+           #pip{
+               width: 300px;
+               height: 280px;
+               border:0px solid white;
+               border-radius: 10px;
+               margin-left: 1.5em;
+               margin-top: 50px;
+               box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+               background-color:white;
+           }
+           #bom{
+               
+               margin:10px 0 0 250px;
+               
+              
+           }
+           ul{
+            display: inline-flex;
+          list-style-type: none;
+  
+  
+  }
+           
+       </style>
+   </div>
+  </li>
+  </ul>
+</ng-container>
+</div>

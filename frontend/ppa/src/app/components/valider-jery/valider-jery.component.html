@@ -1,0 +1,39 @@
+<div>
+  <div class="container">
+    <h1>Les dmandes de participation a un soutnance</h1>
+
+<table  class="mat-elevation-z8">
+
+  <thead>
+  <tr>
+    <th scope="col">nom encadrent </th>
+    <th scope="col">prenom encadrent </th>
+    <th scope="col">departement </th>
+    <th scope="col">  suject</th>
+    <th scope="col">  date setnence</th>
+    <th scope="col"> validation </th>
+    
+  </tr>
+  </thead>
+  <ng-container *ngFor=" let lis of listOfEtudiants " >
+  <ng-container *ngFor=" let list of lis.listes " >
+  <ng-container  *ngFor=" let va of list.validations ">
+  <tbody *ngFor=" let gr of va.groupes">
+  <tr *ngFor=" let rend of va.rendez" > 
+    <td  *ngIf=" gr.idE == this.id " >{{lis.nom}}</td>
+    <td *ngIf=" gr.idE== this.id" >{{lis.prenom}}</td>
+    <td *ngIf=" gr.idE== this.id">{{lis.departement}}</td>
+    <td *ngIf=" gr.idE== this.id ">{{list.sujet}}</td>
+    <td *ngIf=" gr.idE== this.id ">{{rend.heure+" "+rend.date}}</td>
+    <td  *ngIf=" gr.idE== this.id ">
+    <button (click) = "accepter(this.id,lis.id,gr.idG,va.idv)" class = "btn btn-success">ACCEPTER</button>
+    <button (click) = "refuser(gr.idG,this.id)" class = "btn btn-danger">Refuser</button>
+  </td>
+
+</tr>
+</tbody>
+</ng-container></ng-container>
+</ng-container>
+</table>
+</div>
+</div>

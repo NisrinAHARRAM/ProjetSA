@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="titre">Selectionner un departement</h1>
+
+<ng-container  *ngIf="this.dee=='science'"> 
+    <div class="row mb-3"> 
+        <div class="col-lg-4" id="pip" style="margin-left: 100px;"> 
+            <img  (click)="goToPage1('smi')" src="./assets/images/smi.png" class="img-circle myimg" alt="Cinque Terre"> 
+            <h4 style="margin-left: 10px;"><b style="color: rgb(0,74,173)">Nom département :</b>Sciences Mathématique et Informatique</h4>  
+     
+        </div> 
+        <div class="col-lg-4" id="pip"> 
+            <img  (click)="goToPage1('smp')"  src="./assets/images/smp.png" class="img-circle myimg" alt="Cinque Terre"> 
+            <h4 style="margin-left: 10px;"><b style="color: rgb(0,74,173)">Nom département :</b>Sciences de la Matière Physique</h4>  
+             
+        </div> 
+        <div class="col-lg-4" id="pip"> 
+            <img  (click)="goToPage1('svi')" src="./assets/images/svi.png" class="img-circle myimg" alt="Cinque Terre" style="height: 190px;margin-top: 10px;"> 
+            <h4 style="margin-left: 10px;"><b style="color: rgb(0,74,173)">Nom département :</b>SCIENCES DE LA VIE </h4>  
+        </div> 
+    </div> 
+    </ng-container> 
+</div>
+    <!--///////////////////////////////// -->

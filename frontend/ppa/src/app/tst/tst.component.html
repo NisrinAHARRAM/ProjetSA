@@ -1,0 +1,18 @@
+<form  class="col-md-6 offset-md-3"  #form="ngForm" autocomplete="off">
+<div class="form-group">
+    <label for="motpasE">password</label>
+    <input type="password" id="motpasE" class="form-control"  ngModel name="motpasE" [(ngModel)]="login.motpasE" #motpasE="ngModel" minlength="5" required  >
+    <div class="alert-alert-danger" *ngIf= "motpasE.touched && !motpasE.valid" style="color: red;border: 5px; background-color: rgb(233, 155, 155);">
+        <div *ngIf= "motpasE.errors && motpasE.errors['required']">raquiiiir</div>
+        <div *ngIf= "motpasE.errors && motpasE.errors['minlength']"> min is 5</div>
+</div>
+</div>
+<div class="form-group">
+  <label for="confirmE">confirm password</label>
+  <input type="password" id="confirmE" class="form-control"   name="confirmE"   #confirmE="ngModel" [(ngModel)]="confirm" pattern="{{login.motpasE}}"  required  >
+  <div class="alert-alert-danger" *ngIf= "confirmE.touched && !confirmE.valid" style="color: red;border: 5px; background-color: rgb(233, 155, 155);">
+    <div *ngIf= "confirmE.errors && confirmE.errors['pattern']">invalidd</div>
+  </div>
+</div>
+<input type="submit" value="Add Tetudiant">
+</form>

@@ -1,0 +1,51 @@
+package com.example.demo.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.example.demo.model.Form;
+import com.example.demo.model.Note;
+import com.example.demo.service.FormService;
+import com.example.demo.service.NoteService;
+
+public class NoteController {
+
+	@Autowired
+	private NoteService ValidationService;
+
+
+
+	@GetMapping("/Note")
+	public List<Note> getAllListe(){
+		return ValidationService.getAllEmployees();
+	}
+
+
+	@GetMapping("/Note/{id}")
+	public ResponseEntity<Note> getListeById(@PathVariable Long id) {
+		return ValidationService.getEmployeeById(id);
+	}
+
+	@PutMapping("/Note/{id}")
+	public ResponseEntity<Note> updateEmployee(@PathVariable Long id, @RequestBody Note employeeDetails){
+		return ValidationService.updateEmployee( id, employeeDetails);
+	}
+	@DeleteMapping("/Note/{id}")
+	public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id){
+		return ValidationService.deleteEmployee(id);
+	}
+
+	@PostMapping("/Note")
+	Note createListe(@RequestBody Note employee) {
+			return ValidationService.createListe(employee) ;
+	}
+}

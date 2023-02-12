@@ -1,0 +1,24 @@
+.imgh{
+    height: 80%;
+    width: 50%;
+    margin-left: 50px;
+    margin: auto;
+}
+.card-title{
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 60px;
+}
+.card-body{
+    margin-top: 80px;
+}
+.btn-warning{
+    background-color: #FFC93C;
+}
+.btn-outline-warning:hover{
+    color: black;
+    background-color: #FFC93C;
+}
+.btn-outline-warning{
+    margin-left: 10px;
+}

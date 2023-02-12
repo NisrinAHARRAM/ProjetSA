@@ -1,0 +1,27 @@
+
+<h1>La list de les encadrants</h1>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Departement</th>
+      <th scope="col">delete</th>
+      <th scope="col">mod</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let listOfEncadrant of listOfEncadrants">
+      <td>{{listOfEncadrant.nom}}</td>
+      <td>{{listOfEncadrant.prenom}}</td>
+      <td>{{listOfEncadrant.email}}</td>
+      <td>{{listOfEncadrant.departement}}</td>
+      <td><button (click) = "deleteEncadrant(listOfEncadrant.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button></td>
+      <td><button (click) = "updateEncadrant(listOfEncadrant.id)" class = "btn btn-info"> Update</button></td>
+    </tr>
+  </tbody>
+</table>
+<button (click) = "createEn()" class = "btn btn-primary"> ajouter etudiant</button>
+

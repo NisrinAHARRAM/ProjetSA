@@ -1,0 +1,65 @@
+package com.example.demo.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.Etudiant;
+import com.example.demo.model.Rendezvous;
+import com.example.demo.model.Validation;
+import com.example.demo.service.RendezvousService;
+import com.example.demo.service.ValidationService;
+
+@RestController
+
+public class RendezvousController {
+
+
+
+	@Autowired
+	private RendezvousService ValidationService;
+
+
+
+	@GetMapping("/Rendez")
+	public List<Rendezvous> getAllListe(){
+		return ValidationService.getAllEmployees();
+	}
+
+
+	@GetMapping("/Rendez/{id}")
+	public ResponseEntity<Rendezvous> getListeById(@PathVariable Long id) {
+		return ValidationService.getEmployeeById(id);
+	}
+	@PutMapping("/Rendez/{id}")
+	public ResponseEntity<Rendezvous> updateEmployee(@PathVariable Long id, @RequestBody Rendezvous employeeDetails){
+		return ValidationService.updateEmployee( id, employeeDetails);
+	}
+
+	@DeleteMapping("/Rendez/{id}")
+	public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id){
+		return ValidationService.deleteEmployee(id);
+	}
+
+	@PostMapping("/Rendez")
+	Rendezvous createListe(@RequestBody Rendezvous employee) {
+			return ValidationService.createListe(employee) ;
+	}
+
+/*	@GetMapping("/val/{appogE}")
+	public List<Validation> getEnregistrerByAppogE(@PathVariable Long appogE) {
+	    return ValidationService.getEnregistrerByAppogE(appogE);
+	}*/
+
+
+
+}

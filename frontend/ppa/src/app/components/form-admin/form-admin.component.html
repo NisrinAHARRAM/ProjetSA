@@ -1,0 +1,25 @@
+<div class="col-md-6 offset-md-3" style="margin-top: 50px;">
+    <h2>Entrer les donnes de l'université</h2><br>
+    <form #f="ngForm"  (ngSubmit)="onSubmit(f.value)" class="row g-3">
+        <div class="col-md-6">
+            <label for="idun" class="form-label">Id université</label>
+            <input type="text" class="form-control" id="idun" ngModel name="idun"  required placeholder="id  université">
+          </div>
+          <div class="col-md-6">
+            <label for="nomUn" class="form-label">Nom université</label>
+            <input type="text" class="form-control" id="nomUn" ngModel name="nomUn"  required placeholder="Nom  université">
+          </div>
+        <div class="col-md-6">
+          <label for="encadrentUn" class="form-label">Domaine Encadrant</label>
+          <input type="text" class="form-control" id="encadrentUn" ngModel name="encadrentUn"  required placeholder="Domaine Encadrant"> 
+        </div>
+        <div class="col-md-6">
+          <label for="etudiantUn" class="form-label">Domaine Etudiant</label>
+          <input type="text" class="form-control" id="etudiantUn" ngModel name="etudiantUn"  required placeholder="Domaine Etudiant">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" >Ajouter Domaine</button>
+        </div>
+      </form>
+    </div>
+    

@@ -1,0 +1,61 @@
+<div class="col-md-6 offset-md-3" style="margin-top: 50px;">
+    <h2>Entrer voyre donnes </h2>
+    <form #f="ngForm"  (ngSubmit) = "onSubmit(f.value)" class="row g-3">
+        <div class="col-md-6">
+            <label for="nom" class="form-label">Nom </label>
+            <input type="text" class="form-control" id = "nomE"
+                [(ngModel)] = "login.nomE" name = "nomE" placeholder="Nom" required>
+        </div>
+        <div class="col-md-6">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id = "prenomE"
+                [(ngModel)] = "login.prenomE" name = "prenomE" placeholder="Prenom" required>
+        </div>
+        <div class="col-md-6">
+            <label for="appoge" class="form-label">Appoge</label>
+            <input type="text" class="form-control" id = "appoge"
+                [(ngModel)] = "login.appoge" name = "appoge" placeholder="Appoge" required>
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email </label>
+            <input type="text" id = "emaiE" class="form-control"  ngModel name = "emaiE" [(ngModel)]="login.emaiE" #emaiE="ngModel" pattern='.+@etu.uae.ac.ma$'  required placeholder="name@etu.uae.ac.ma">
+            <div *ngIf= "emaiE.errors && emaiE.errors['pattern']" style="color: red;border: 5px; background-color: rgb(233, 155, 155);">error doivent utilise </div>
+        </div>
+        <div class="col-md-8">
+            <label for="filiere" class="form-label">Filier: </label>
+            <select  style="width:570px;height:35px; background-color: rgb(255, 255, 255);" id = "filierE" [(ngModel)] = "login.filierE" name = "filierE">
+                <option value="smi">smi</option>
+                <option value="sma">sma</option>
+                <option value="smp">smp</option>
+                <option value="smc">smc</option>
+                <option value="svi">svi</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="motpasE" class="form-label">Password</label>
+            <input type="password" id="motpasE" class="form-control"  ngModel name="motpasE" [(ngModel)]="login.motpasE" #motpasE="ngModel" minlength="5" required  placeholder="Mot de passe">
+            <div class="alert-alert-danger" *ngIf= "motpasE.touched && !motpasE.valid" style="color: red;border: 5px; background-color: rgb(233, 155, 155);">
+                <div *ngIf= "motpasE.errors && motpasE.errors['required']">raquiiiir</div>
+                <div *ngIf= "motpasE.errors && motpasE.errors['minlength']"> min is 5</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <label for="confirmE" class="form-label">confirm password</label>
+          <input type="password" id="confirmE" class="form-control"  name="confirmE"   #confirmE="ngModel" [(ngModel)]="confirm" pattern="{{login.motpasE}}"   placeholder="Confirmer votre mot de passe">
+          <div class="alert-alert-danger" *ngIf= "confirmE.touched && !confirmE.valid" style="color: red;border: 5px; background-color: rgb(233, 155, 155);">
+            <div *ngIf= "confirmE.errors && confirmE.errors['pattern']">invalidd</div>
+          </div>
+        </div>
+        <div class="col-12">
+        <button  class = "btn btn-success" type ="submit" >Submit</button>
+        </div>
+    </form>
+    </div> 
+
+         <!-- <div class="form-group">
+            <label> filiere</label>
+            <input type="text" class ="form-control" id = "filierE"
+                [(ngModel)] = "login.filierE" name = "filierE">
+        </div>
+     -->
