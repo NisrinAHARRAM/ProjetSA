@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Encadrant } from 'src/app/encadrant';
+import { Liste } from 'src/app/liste';
 import { HttpService } from 'src/app/services/http.service';
 
 
@@ -13,6 +14,7 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class ListSujectComponent implements OnInit {
   title = 'Liste des sujets';
+  liste!: Liste[];
   id!:number;
   con=0;
   ide!:number;
@@ -36,5 +38,18 @@ export class ListSujectComponent implements OnInit {
     });
     this.titleService.setTitle(this.title);
   }
+  private getSujets(){
+    this.httpService.getAllListe().subscribe(data => this.liste = data 
+    );
+  }
+
+  deleteSujet(id: number,sujet:string){
+    this.httpService.deleteSuj(id).subscribe(data => {
+      console.log(data);
+      alert("Vous avez supprime le sujet avec succe "+sujet)
+      this.getSujets();
+    });
+  }
+
 
 }

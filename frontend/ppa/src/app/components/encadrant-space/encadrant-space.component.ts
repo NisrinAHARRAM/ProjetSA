@@ -11,13 +11,16 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class EncadrantSpaceComponent implements OnInit {
   title = 'Espace encadrant';
+  listOfEtudiants!:Encadrant[]
   id!:number;
   constructor(private titleService:Title,private route: ActivatedRoute,private httpService:HttpService,
     private router: Router , ) { }
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.titleService.setTitle(this.title);
-  }
+    this.httpService.fetchAllEn().subscribe(etudiant => {this.listOfEtudiants = etudiant;
+    });
+    }
   
   updateEmployee(){
     const id = this.id;

@@ -1,4 +1,4 @@
-<div class="col-md-6 offset-md-3" style="margin-top: 50px;">
+<div class="col-md-6 offset-md-3" style="margin-top: 30px;">
     <h2>Entrer voyre donnes </h2>
     <form #f="ngForm"  (ngSubmit) = "onSubmit(f.value)" class="row g-3">
         <div class="col-md-6">
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-8">
             <label for="filiere" class="form-label">Filier: </label>
-            <select  style="width:570px;height:35px; background-color: rgb(255, 255, 255);" id = "filierE" [(ngModel)] = "login.filierE" name = "filierE">
+            <select  style="width:550px;height:35px; background-color: rgb(255, 255, 255);" id = "filierE" [(ngModel)] = "login.filierE" name = "filierE">
                 <option value="smi">smi</option>
                 <option value="sma">sma</option>
                 <option value="smp">smp</option>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="col-12">
-        <button  class = "btn btn-success" type ="submit" >Submit</button>
+        <button  class = "btn btn-success" type ="submit" >S'inscrire</button>
         </div>
     </form>
     </div> 

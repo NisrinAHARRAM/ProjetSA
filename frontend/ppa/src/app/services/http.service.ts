@@ -51,6 +51,7 @@ private host18 = "http://localhost:8095/Form"
 private host19 = "http://localhost:8095/ajout-note"
 private host20 = "http://localhost:8095/Publie"
 private host22 = "http://localhost:8095/Admin"
+private baseURLll="http://localhost:8095/Liste"
   constructor(private http: HttpClient) { }
 
   public fetchAll(): Observable<Etudiant[]> {
@@ -63,6 +64,10 @@ private host22 = "http://localhost:8095/Admin"
     return this.http.get<Etudiant[]>(this.url + "/etudiant");
   }
  
+  deleteSuj(id: number): Observable<Object>{
+    return this.http.delete(`${this.baseURLll}/${id}`);
+  }
+
   deleteEmployee(id: number): Observable<Object>{
     return this.http.delete(`${this.baseURL}/${id}`);
   }
@@ -247,5 +252,8 @@ public addfromadm(etudiant: Admin) {
 public fetchdomaine(): Observable<Admin[]> {
   return this.http.get<Admin[]>(this.host22);
 }
+
+
+
 
 }

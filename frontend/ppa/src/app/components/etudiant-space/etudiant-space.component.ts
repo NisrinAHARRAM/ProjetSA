@@ -15,6 +15,7 @@ import { Validation } from 'src/app/validation';
 export class EtudiantSpaceComponent  implements OnInit {
   title = 'Espace etudiant';
   id!: number;
+  listOfEtud!:Etudiant[];
   selectedvalid!:Validation;
   private  currentProduct:any;
   con=0;
@@ -58,6 +59,8 @@ export class EtudiantSpaceComponent  implements OnInit {
     });
 ;
 this.titleService.setTitle(this.title);
+this.httpService.fetchAll().subscribe(etudiant => {this.listOfEtud = etudiant;
+});
 }
 demande(id:number){
   this.httpService.vaByappstring(id).subscribe(data => {

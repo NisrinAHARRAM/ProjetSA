@@ -26,6 +26,7 @@
           <th scope="col">Prenom prof</th>
           <th scope="col">Email prof</th>
           <th scope="col">Nombre</th>
+          <!-- <th scope="col">Nombre des groupes dans ce sujet</th> -->
           <th scope="col">Action</th>
         </tr>
         </thead>
@@ -38,6 +39,7 @@
             <td>{{lis.prenom}}</td>
             <td>{{lis.email}}</td>
             <td>{{listeId.nbr}}</td>
+            <!-- <td>{{this.con}}</td> -->
             <td><button (click) = "enretudiant(listeId.id)" class = "btn btn-info"> Enregistrer</button></td>
           </tr>
           </tbody>

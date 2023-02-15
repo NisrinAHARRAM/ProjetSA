@@ -34,21 +34,42 @@ margin-right: auto;
 h1{
 text-align: center;
 font-weight: bold;
+margin-top: 40px;
 font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
-.navbar{
-  margin-left: 50px;
-}
 .list-group{
   margin-top: 34px;
 }
 .list-group-item:hover{
   background-color:rgb(43, 125, 187);
 }
-
+.list-group-item{
+  background-color: #5BC0F8;
+  color: white;
+  font-weight: bold;
+  border-style: solid;
+  border-color: white;
+}
 
 .test{
   display:inline-flex;
   list-style-type: none;
+}
+.sidebar{
+  background-color: #5BC0F8;
+  width: 200px;
+  height: 450px;
+  padding: 10px;
+  list-style: none;
+  border-style: solid;
+  border-color: #5BC0F8;
+}
+.section{
+  /* background-color: #86E5FF; */
+  border-style: solid;
+  border-color: #5BC0F8;
+  width:  850px;
+  height: 450px;
+  padding: 10px;
 }

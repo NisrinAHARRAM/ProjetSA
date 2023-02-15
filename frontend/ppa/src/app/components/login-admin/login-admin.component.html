@@ -12,7 +12,7 @@
     <div class="login-wrap p-4 p-md-5">
     <div class="d-flex">
     <div class="w-100">
-    <b><h1 class="mb-4" style="width: 350px;">Connexion Admin</h1></b>
+    <b><h3 class="mb-4" style="width: 350px;">Connexion Admin</h3></b>
     <div class="alert alert-danger" style="width: 350px;" *ngIf='invalidCredentials'>{{errorMessage}}</div>
     </div>
     <div class="w-100">
@@ -25,16 +25,16 @@
     <form #f="ngForm" (ngSubmit)="saveProduct(f.value)">
     <div class="form-group mt-3">
     <label class="form-control-placeholder" for="username">Email</label>
-    <input ngModel  type="text" name="email" id="email" class="form-control">
+    <input ngModel  type="text" name="email" id="email" class="form-control" placeholder="Entrer votre email">
     </div><br>
     <div class="form-group">
     <label class="form-control-placeholder" for="password">Password</label>
-    <input ngModel  type="password" name="password" id="password" class="form-control">
+    <input ngModel  type="password" name="password" id="password" class="form-control" placeholder="Entrer votre mot de passe">
     <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
     </div>
     <br>
     <div class="form-group">
-    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Connexion</button>
     </div>
     </form>
     </div>

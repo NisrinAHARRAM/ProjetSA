@@ -94,37 +94,37 @@ public Encadrant register(Encadrant employee) {
 	}
 
 public void sendVerificationEmail(Encadrant user ,String siteURL)
-		  		throws MessagingException, UnsupportedEncodingException {
-		    String toAddress = user.getEmail();
-		    //String fromAddress = "Your email address";
-		  
-		    String senderName = "university";
-		    String subject = "Please verify your registration";
-		   
-	        String content = "Dear [[name]],<br>"
-	                + "Please click the link below to verify your registration:<br>"
-	                + "<h3><a href=\"[[URL]]\" target=\"_self\">VERIFY</a></h3>"
-	                + "Thank you,<br>"
-	                + "Your company name.";
-	        
-		    MimeMessage message = mailSender.createMimeMessage();
-		    MimeMessageHelper helper = new MimeMessageHelper(message);
-		    
-		   
-		    helper.setFrom("ahniso199@gmail.com", senderName);
-		    helper.setTo(toAddress);
-		    helper.setSubject(subject);
-		     
-		    content = content.replace("[[name]]", user.getNom());
-		    String verifyURL = siteURL + "/verify_en?code=" + user.getVerificationCode();
-		     
-		    content = content.replace("[[URL]]", verifyURL);
-		     
-		    helper.setText(content, true);
-		     
-		    mailSender.send(message);
-		     
-		
+  		throws MessagingException, UnsupportedEncodingException {
+    String toAddress = user.getEmail();
+    //String fromAddress = "Your email address";
+  
+    String senderName = "univetsty";
+    String subject = "Please verify your registration";
+   
+    String content = "Dear [[name]],<br>"
+            + "Please click the link below to verify your registration:<br>"
+            + "<h3><a href=\"[[URL]]\" target=\"_self\">VERIFY</a></h3>"
+            + "Thank you,<br>"
+            + "Your company name.";
+    
+    MimeMessage message = mailSender.createMimeMessage();
+    MimeMessageHelper helper = new MimeMessageHelper(message);
+    
+   
+    helper.setFrom("manalml751@gmail.com", senderName);
+    helper.setTo(toAddress);
+    helper.setSubject(subject);
+     
+    content = content.replace("[[name]]", user.getNom());
+    String verifyURL = siteURL + "/verify_en?code=" + user.getVerificationCode();
+     
+    content = content.replace("[[URL]]", verifyURL);
+     
+    helper.setText(content, true);
+     
+    mailSender.send(message);
+     
+
 }
 
 

@@ -9,6 +9,6 @@ import com.example.demo.model.Liste;
 
 public interface ListeRepository extends JpaRepository<Liste, Long>{
 
-	//boolean findBy(String email);
+	//boolean finddBy(long id);
 
 }

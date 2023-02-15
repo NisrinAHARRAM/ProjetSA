@@ -2,7 +2,9 @@
 
 
   <div class="container">
-    <h1>Bienvenue dans votre espace</h1>
+    <ng-container *ngFor="let lis of this.listOfEtud">
+      <h2 *ngIf="lis.appoge==this.id">Bonjour {{lis.nomE}} {{lis.prenomE}} bienvenue dans votre espace</h2>
+      </ng-container>
     
     <nav class="navbar navbar-expand-lg">
         <div class="collapse navbar-collapse" id="navbarNav">

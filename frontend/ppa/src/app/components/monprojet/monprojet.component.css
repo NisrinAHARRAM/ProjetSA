@@ -31,5 +31,13 @@ table {
   }
   .card{
     margin-top: 30px;
-    height: 300px;
+    height: 200px;
+    margin-left: 10px;
+  }
+  p{
+    margin-left: 10px;
+  }
+  ul{
+    display: inline-flex;
+    list-style: none;
   }

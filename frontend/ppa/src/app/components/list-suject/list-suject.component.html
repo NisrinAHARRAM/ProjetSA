@@ -17,6 +17,7 @@
       <td *ngIf=" lis.id== this.id" >{{list.desc}}</td>
       <td *ngIf=" lis.id== this.id">{{list.nbr}}</td>
       <td *ngIf=" lis.id== this.id">{{this.con}}</td>
+      <td><button *ngIf=" lis.id== this.id" (click)=" deleteSujet(list.id,list.sujet)" class="btn btn-danger">Supprimer</button></td>
   </tr>
   </tbody>
 </table>

@@ -48,9 +48,13 @@ export class AjouteComponent implements OnInit{
         for(let listeId of lis.listes){
           for(let liste of listeId.validations){
             for(let list of liste.demandvs){
-            if(list.idD== this.idd && list.status=="demandez rendez vous"){
+            if(list.idD== this.idd && list.status=="La demande d'un R-V"){
              this.httpService.deletedm(this.idd).subscribe();
-            }}}}}
+            }
+            if(list.idD== this.idd && list.status=="je valide"){
+              this.httpService.deletedm(this.idd).subscribe();
+             }
+          }}}}
       console.log("2");
       alert("Le rendez-vous a été envoyé")
       return this.router.navigateByUrl("/ajout/"+this.ide);

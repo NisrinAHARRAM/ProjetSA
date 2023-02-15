@@ -39,7 +39,7 @@ export class CreateEncadrantComponent {
 
     onSubmit(f:any){
     if((f.nom!=null)&&(f.prenom!=null)&&(f.email!=null)&&(f.password!=null)&&(f.departement!=null)&&(f.id!=null)){
-      let pattern = /.+@etu.uae.ac.ma/; 
+      let pattern = /.+@uae.ac.ma/; 
       if(f.email.match(pattern)){
       console.log(this.encadrant);
       this.saveEncadrat();

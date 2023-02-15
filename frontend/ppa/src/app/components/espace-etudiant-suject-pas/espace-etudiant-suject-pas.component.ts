@@ -13,6 +13,8 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class EspaceEtudiantSujectPasComponent implements OnInit {
   title ='Liste des sujets';
+  con=0;
+  listOfEtudiants!:Encadrant[];
   id!:number;
   ide!:number;
   constructor(private titleService:Title,private route: ActivatedRoute,private httpService:HttpService,
@@ -30,6 +32,16 @@ export class EspaceEtudiantSujectPasComponent implements OnInit {
     
     });
     this.httpService.fetchAllEn().subscribe(etudiant => this.listOfEncadrants = etudiant);
+
+    this.httpService.fetchAllEn().subscribe(etudiant => {this.listOfEtudiants = etudiant;
+      for(let et of this.listOfEtudiants){
+        for(let list of et.listes){
+          for(let val of list.validations){
+              this.con++;
+          }
+        }
+      }
+      });
 
     this.titleService.setTitle(this.title);
   }

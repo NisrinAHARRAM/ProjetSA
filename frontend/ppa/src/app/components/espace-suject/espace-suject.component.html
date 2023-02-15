@@ -1,21 +1,27 @@
 <div class="container">
-
-    <button (click) = "home()" class="btn">
-        <img class="card" src="../assets/images/accueil.png" alt="Card image cap" style=" border: none;border-radius: 50px; width: 80px;height: 80px;margin-left: 50px;">
-   </button>
-<br>
+  <br>
 <ul class="test">
-    <li>
-        <div class="list-group">
+    <li class="side">
+      <ul class="sidebar">
+        <li>
+          <div class="ico">
+            <button (click) = "home()" class="btn">
+                <img class="card" src="../assets/images/accueil.png" alt="Card image cap" style=" border: none;border-radius: 50px; width: 80px;height: 80px;margin-left: 35px;">
+           </button>
+          </div>
+        </li>
+        <li>
+          <div class="list-group">
             <button  (click)="affichecon()" class="list-group-item list-group-item-action " routerLinkActive="active">Les condaidats</button>
             <button  (click)="remarque2()" class="list-group-item list-group-item-action " routerLinkActive="active">Espace des jurys</button>
             <button  (click)="suject()" class="list-group-item list-group-item-action " routerLinkActive="active">Les sujets</button>
             <button  (click)="demande()" class="list-group-item list-group-item-action " routerLinkActive="active">Les demandes</button>
           </div>
+        </li>
+      </ul>
 
     </li>
-
-    <li style="margin-left: 150px;">
+    <li style="margin-left: 15px;" class="section">
     <h1>Les sujets</h1>
     <nav class="navbar navbar-expand-lg">
         <div class="collapse navbar-collapse" id="navbarNav">

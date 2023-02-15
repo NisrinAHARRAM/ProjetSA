@@ -42,12 +42,12 @@
   
       <thead>
       <tr>
-        <th scope="col"> Appoge 1</th>
-        <th scope="col"> Nom complet 1</th>
-        <th scope="col">Appoge 2</th>
-        <th scope="col">Nom complet 2</th>
-        <th scope="col"> Appoge 3</th>
-        <th scope="col"> Nom complet 3</th>
+        <th scope="col"> Appoge </th>
+        <th scope="col"> Nom complet </th>
+        <!-- <th scope="col">Appoge 2</th> -->
+        <!-- <th scope="col">Nom complet 2</th> -->
+        <!-- <th scope="col"> Appoge 3</th> -->
+        <!-- <th scope="col"> Nom complet 3</th> -->
         <th scope="col">Nombre des etudiants</th>
         <th scope="col">Sujet </th>
         <th scope="col"></th>
@@ -72,25 +72,32 @@
       <ng-container  *ngFor=" let lis of listOfEtudiants ">
       <tbody *ngFor="let listeId of lis.listes">
       <tr *ngFor="let liste of listeId.validations">
-        <td  *ngIf="lis.id== this.id" >{{liste.appogeT1}}</td>
-        <td *ngIf="lis.id== this.id">{{liste.nomET1}}</td>
-        <td *ngIf="lis.id== this.id">{{liste.appogeT2}}</td>
-        <td *ngIf="lis.id== this.id">{{liste.nomET2}}</td>
-        <td *ngIf="lis.id== this.id">{{liste.appogeT3}}</td>
-        <td *ngIf="lis.id== this.id">{{liste.nomET3}}</td>
+        <td  *ngIf="lis.id== this.id" ><br>
+          {{liste.appogeT1}} <br>
+          {{liste.appogeT2}} <br>
+          {{liste.appogeT3}} <br>
+        </td>
+        <td *ngIf="lis.id== this.id"><br>
+          {{liste.nomET1}}<br>
+          {{liste.nomET2}}<br>
+          {{liste.nomET3}}<br>
+        </td>
+        <!-- <td *ngIf="lis.id== this.id">{{liste.appogeT2}}</td> -->
+        <!-- <td *ngIf="lis.id== this.id">{{liste.nomET2}}</td> -->
+        <!-- <td *ngIf="lis.id== this.id">{{liste.appogeT3}}</td> -->
+        <!-- <td *ngIf="lis.id== this.id">{{liste.nomET3}}</td> -->
         <td *ngIf="lis.id== this.id">{{listeId.nbr}}</td>
         <td *ngIf="lis.id== this.id">{{listeId.sujet}}</td>
         <td *ngIf="lis.id== this.id"><button  (click) ="jeru(liste.idv)" class="btn btn-success">Ajouter jury</button></td>
         <td *ngIf="lis.id== this.id"><button  (click) ="lste(this.id,listeId.sujet)" class="btn btn-success">Liste des jurys</button></td>
-        <td *ngIf="lis.id== this.id"><button (click) = "note(this.id,liste.idv)" class = "btn btn-info"> Ajouter note</button></td>
         <ng-container *ngFor="let link of liste.driveLinks">
         <td *ngIf="lis.id== this.id"><button (click) = "publie(link.link,liste.idv)" class = "btn btn-secondary"> Publie</button></td>
         <td *ngIf="lis.id== this.id" style="color: rgb(71, 188, 238);"><a href="{{link.link}}">lien</a></td>
         </ng-container>
+        <td *ngIf="lis.id== this.id"><button (click) = "note(this.id,liste.idv)" class = "btn btn-info"> Ajouter note</button></td>
         <ng-container *ngFor="let note of liste.notes" >
-          <td *ngIf="lis.id== this.id"  style="color: rgb(71, 238, 157);" >{{note.note}}</td>
+          <td *ngIf="lis.id== this.id"  style="color: rgb(221, 27, 27);font-weight: bold;" >{{note.note}}</td>
         </ng-container>
-        
       </tr>
   </tbody>
   </ng-container>
